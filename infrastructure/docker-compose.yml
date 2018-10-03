@@ -1,0 +1,12 @@
+version: '3'
+services:
+  node:
+    image: node
+    build:
+      context: .
+      dockerfile: node/Dockerfile
+    container_name: mean-path-node
+    volumes:
+      - ../application/:/application
+    ports:
+      - "8080:8080"
