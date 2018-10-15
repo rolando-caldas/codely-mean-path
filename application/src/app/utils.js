@@ -1,5 +1,5 @@
-function log(msg) {
-    console.log(msg);
+function log (msg) {
+  console.log(msg)
 }
 
-export { log };
+export { log }
