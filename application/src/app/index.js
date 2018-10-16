@@ -1,15 +1,17 @@
-import { log } from './utils.js'
-import './styles.css'
+import angular from 'angular'
+import angularGrid from 'angulargrid'
 
-const me = {
-  name: 'rolando',
-  city: 'Vigo'
-}
+import './css/styles.css'
 
-const you = { ...me }
-const him = { ...me }
+import MainCtrl from './controllers/MainCtrl'
+import DataService from './services/DataService'
 
-console.log(you === me)
-console.log(him === you)
+const MODULE_NAME = 'ImagesFavApp'
 
-log('hola')
+angular
+  .module(MODULE_NAME, [angularGrid])
+  .service('DataService', DataService)
+  .controller('MainCtrl', MainCtrl)
+  .run(['DataService', DataService => DataService.getPhotos()])
+
+export default MODULE_NAME
